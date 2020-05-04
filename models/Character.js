@@ -10,4 +10,4 @@ const Character = new Schema({
     
 })
 
-module.exports = mongoose.model({'Character' : Character})
+module.exports = mongoose.model('Character', Character)

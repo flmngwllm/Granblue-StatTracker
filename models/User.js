@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 const User = new Schema({
     name: String,
     description: String,
+    totalwins: String,
     characters: [
         {
             type: Schema.Types.ObjectId,

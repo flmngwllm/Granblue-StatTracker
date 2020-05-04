@@ -5,8 +5,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const graphqlHTTP = require('express-graphql')
 const cors = require('cors')
-const characterSchema = require('./graphql/characterSchema')
-const userSchema = require('./graphql/userSchema')
+const schema = require('./graphql/Schemas')
 
 
 mongoose.connect(process.env.MONGODB_URI); 
@@ -33,8 +32,8 @@ app.get("/", (req, res) => {
 //allows to use cors
 app.use('*', cors())
 
-//allow the use of Graphql over HTTP and the Graphiql user interface
-app.use('graphql', cors(), graphqlHTTP({
+//allows the use of Graphql over HTTP and the Graphiql user interface
+app.use('/graphql', cors(), graphqlHTTP({
     schema: schema,
     rootValue: global,
     graphiql: true,
@@ -50,14 +49,14 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 
-// directory to host static content
-app.use(express.static(`${__dirname}/client/build`))
+// // directory to host static content
+// app.use(express.static(`${__dirname}/client/build`))
 
 
-//
-app.get('/*', (req, res)=>{
-    res.sendFile(`${__dirname}/client/build/index.html`)
-})
+// //
+// app.get('/*', (req, res)=>{
+//     res.sendFile(`${__dirname}/client/build/index.html`)
+// })
 
 const PORT = process.env.PORT || 3000
 
