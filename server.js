@@ -1,12 +1,23 @@
+require('dotenv').config()
 const express = require('express')
 const app = express()
+const path = require('path');
+const mongoose = require('mongoose');
 
-app.get("/:name", (req, res) => {
-    console.log(req.params);
-    console.log(req.route);
-    console.log(req.query);
-    // parameter is name, query parameter is first_name
-    res.send(`Hello, ${req.params.name}. My name is ${req.query.first_name}.`);
+
+mongoose.connect(process.env.MONGODB_URI); 
+
+const connection = mongoose.connection;
+connection.on('connected', () => {
+  console.log('Mongoose Connected Successfully')
+})
+
+connection.on('error', (err) => {
+  console.log('Mongoose default connection error: ' + err);
+}) 
+
+app.get("/", (req, res) => {
+    res.send("hello")
   });
 
 
@@ -28,9 +39,12 @@ app.use(express.static(`${__dirname}/client/build`))
 
 
 //
+app.get('/*', (req, res)=>{
+    res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
-port = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
-app.listen(port, () =>{
-    console.log('app is running ' + port)
+app.listen(PORT, () =>{
+    console.log('app is running ' + PORT)
 })
