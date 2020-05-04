@@ -4,7 +4,9 @@ const Schema = mongoose.Schema
 const Character = new Schema({
     name: String,
     wins: Number,
-    losses: Number
+    losses: Number,
+    percentage: Number,
+    image: []
     
 })
 

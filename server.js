@@ -3,6 +3,10 @@ const express = require('express')
 const app = express()
 const path = require('path');
 const mongoose = require('mongoose');
+const graphqlHTTP = require('express-graphql')
+const cors = require('cors')
+const characterSchema = require('./graphql/characterSchema')
+const userSchema = require('./graphql/userSchema')
 
 
 mongoose.connect(process.env.MONGODB_URI); 
@@ -23,6 +27,18 @@ app.get("/", (req, res) => {
 
 //middleware
 
+
+
+
+//allows to use cors
+app.use('*', cors())
+
+//allow the use of Graphql over HTTP and the Graphiql user interface
+app.use('graphql', cors(), graphqlHTTP({
+    schema: schema,
+    rootValue: global,
+    graphiql: true,
+}))
 
 
 //parse body of HTTP requests from a URL encoded string
