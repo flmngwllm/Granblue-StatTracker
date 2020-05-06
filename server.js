@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const graphqlHTTP = require('express-graphql')
 const cors = require('cors')
 const schema = require('./graphql/Schemas')
+// const resolvers = require('./graphql/resolvers')
 
 
 mongoose.connect(process.env.MONGODB_URI); 

@@ -2,6 +2,7 @@ const mongoose = require('../db/connection')
 const Schema = mongoose.Schema
 
 const User = new Schema({
+    id: String,
     name: String,
     description: String,
     totalwins: String,
