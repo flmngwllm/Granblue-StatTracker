@@ -6,7 +6,7 @@ const Character = new Schema({
     wins: Number,
     losses: Number,
     percentage: Number,
-    image: []
+    image: String
     
 })
 

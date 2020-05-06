@@ -4,11 +4,11 @@ const Character = require("../models/Character")
 const User = require("../models/User")
 
 
-const users = [
-    { name:"Will", totalwins:432 , description: "He cool", id:1},
-    { name: "Book 2", totalwins: 32, description: "He cool", id: 2},
-    { name: "Book 3", totalwins: 532, description: "He cool", id: 3 }
-]
+// const users = [
+//     { name:"Will", totalwins:432 , description: "He cool", id:1},
+//     { name: "Book 2", totalwins: 32, description: "He cool", id: 2},
+//     { name: "Book 3", totalwins: 532, description: "He cool", id: 3 }
+// ]
 
 
 // User Schema
@@ -19,6 +19,13 @@ const userType = new GraphQLObjectType({
         name : { type: GraphQLString},
         totalwins : { type: GraphQLInt },
         description :  { type: GraphQLString },
+        character : {
+            type : new GraphQLList(characterType),
+            resolve(parent, args){
+                return Character.find({charactersID: parent.id})
+            }
+        }
+            
     })
 })
 
@@ -31,11 +38,17 @@ const characterType = new GraphQLObjectType({
         id: {type: GraphQLID},
         name : { type: GraphQLString},
         wins : { type: GraphQLInt },
-        loses :  { type: GraphQLInt },
-        image : { type: GraphQLString }
+        losses :  { type: GraphQLInt },
+        percentage: {type: (GraphQLInt)},
+        image: { type: GraphQLString },
+        user: {
+            type: userType,
+        resolve(parent, args) {
+            return User.findById(parent.charactersID);
+            }
+        }
     })
 })
-
 
 
 //query the graph to grab the data
@@ -56,9 +69,9 @@ const Query = new GraphQLObjectType({
         },
 
         users : {
-            type: new GraphQLList(characterType),
+            type: new GraphQLList(userType),
             resolve(parent, args) {
-                return Character.find({})
+                return User.find({})
             }
         },
 
@@ -82,9 +95,61 @@ const Query = new GraphQLObjectType({
     }
 })
 
+//allows user to add, update and delete to mondodb through graphql
+const Mutation = new GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+        addUser: {
+            type: userType,
+            args: {
+                name: {type: GraphQLNonNull(GraphQLString)},
+                totalwins: {type: (GraphQLInt)},
+                description: {type: (GraphQLString)},
+                charactersID: { type: new GraphQLNonNull(GraphQLID)}
+            },
+            resolve(parent, args){
+                let user = new User({
+                    name: args.name,
+                    totalwins: args.totalwins,
+                    description: args.description,
+                    charactersID: args.charactersID
+
+                })
+                return user.save()
+
+            }
+
+            
+        },
+
+        addCharacter: {
+            type: characterType,
+            args: {
+                name: {type: GraphQLNonNull(GraphQLString)},
+                wins: {type: (GraphQLInt)},
+                losses: {type: (GraphQLInt)},
+                percentage: {type: (GraphQLInt)},
+                image: {type: (GraphQLString)},
+                
+            },
+            resolve(parent, args){
+                let character = new Character({
+                    name: args.name,
+                    wins: args.wins,
+                    losses: args.losses,
+                    percentage: args.percentage,
+                    image: args.image
+                })
+                return character.save()
+                
+            }
+        }
+    }
+})
 
 
 
-module.exports = new GraphQLSchema({ query : Query})
+
+module.exports = new GraphQLSchema({ query : Query, mutation : Mutation})
 
 

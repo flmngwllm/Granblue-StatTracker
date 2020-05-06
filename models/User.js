@@ -4,9 +4,9 @@ const Schema = mongoose.Schema
 const User = new Schema({
     id: String,
     name: String,
+    totalwins: Number,
     description: String,
-    totalwins: String,
-    characters: [
+    charactersID: [
         {
             type: Schema.Types.ObjectId,
             ref: "Character"
