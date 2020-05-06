@@ -15,7 +15,7 @@ const User = require("../models/User")
 const userType = new GraphQLObjectType({
     name: 'User',
     fields : () => ({
-        id: {type: GraphQLID},
+        _id: {type: GraphQLID},
         name : { type: GraphQLString},
         totalwins : { type: GraphQLInt },
         description :  { type: GraphQLString },
@@ -41,12 +41,12 @@ const characterType = new GraphQLObjectType({
         losses :  { type: GraphQLInt },
         percentage: {type: (GraphQLInt)},
         image: { type: GraphQLString },
-        user: {
-            type: userType,
-        resolve(parent, args) {
-            return User.findById(parent.charactersID);
-            }
-        }
+        // user: {
+        //     type: userType,
+        // resolve(parent, args) {
+        //     return User.findById(parent.charactersID);
+        //     }
+        // }
     })
 })
 
@@ -58,7 +58,7 @@ const Query = new GraphQLObjectType({
         user : {
             type: userType,
             // arguments passed by the user while making the query
-            args: {id : {type : GraphQLID} },
+            args: {id : {type : GraphQLID}},
             resolve(parent, args){
 
                 // return User.find((item) => { return item.id == args.id});
@@ -143,7 +143,37 @@ const Mutation = new GraphQLObjectType({
                 return character.save()
                 
             }
-        }
+        },
+
+        deleteUser: {
+            type: userType,
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve(parent, args){
+                    const remUser = User.findByIdAndRemove(args.id)
+                    if(!remUser){
+                        throw new Error('No character found')
+                }
+                return remUser
+                
+            }
+        },
+
+        deleteCharacter: {
+            type: characterType,
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLString)}
+            },
+            resolve(parent, args){
+                    const remCharacter = Character.findByIdAndRemove(args.id)
+                    if(!remCharacter){
+                        throw new Error('No character found')
+                }
+                return remCharacter
+                
+            }
+        },
     }
 })
 
