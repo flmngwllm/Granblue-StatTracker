@@ -1,17 +1,20 @@
 const mongoose = require('../db/connection')
 const Schema = mongoose.Schema
 
+
 const User = new Schema({
-    id: String,
+    id : String,
     name: String,
     totalwins: Number,
     description: String,
-    charactersID: [
-        {
+    charactersID:[ {
             type: Schema.Types.ObjectId,
             ref: "Character"
         }
     ]
+
 })
+
+
 
 module.exports = mongoose.model('User', User)
