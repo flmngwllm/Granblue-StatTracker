@@ -18,7 +18,7 @@ class Characters extends Component{
 
                     return(
                         data.characters.map((character) =>(
-                            <div key ={character._id}>
+                            <div key={character._id}>
                               {character.name}
                               {character.wins}
                               {character.losses}

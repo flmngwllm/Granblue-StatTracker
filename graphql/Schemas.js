@@ -38,6 +38,7 @@ const userType = new GraphQLObjectType({
     name: 'User',
     fields : () => ({
         _id: {type: GraphQLID},
+        email : { type: GraphQLString},
         name : { type: GraphQLString},
         totalwins : { type: GraphQLInt },
         description : { type: GraphQLString },
@@ -111,6 +112,7 @@ const Mutation = new GraphQLObjectType({
             type: userType,
             args: {
                 name: {type: GraphQLNonNull(GraphQLString)},
+                email : { type: GraphQLString},
                 totalwins: {type: (GraphQLInt)},
                 description: {type: (GraphQLString)},
                 charactersID: { type: new GraphQLNonNull(GraphQLID)}
@@ -118,6 +120,7 @@ const Mutation = new GraphQLObjectType({
             resolve(parent, args){
                 let user = new User({
                     name: args.name,
+                    email: args.email,
                     totalwins: args.totalwins,
                     description: args.description,
                     charactersID: args.charactersID
@@ -135,6 +138,7 @@ const Mutation = new GraphQLObjectType({
             args: {
                 id: {type: new GraphQLNonNull(GraphQLString)},
                 name: {type: GraphQLNonNull(GraphQLString)},
+                email : { type: GraphQLString},
                 totalwins: {type: (GraphQLInt)},
                 description: {type: (GraphQLString)},
                 charactersID: { type: new GraphQLNonNull(GraphQLID)}

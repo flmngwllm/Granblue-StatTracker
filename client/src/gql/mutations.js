@@ -1,9 +1,10 @@
 import {gql} from 'graphql-tag'
 
-export const addUser = gql`
-mutation($name: String, $description: String, $totalwins: Int, $charactersID: String){
-    addUser(name: $name, description: $description, totalwins: $totalwins, charactersID: $charactersID){
+export const AddUser = gql`
+mutation($name: String, $email: String, $description: String, $totalwins: Int, $charactersID: String){
+    addUser(name: $name, email: $email, description: $description, totalwins: $totalwins, charactersID: $charactersID){
         id
+        email
         name
         description
         totalwins
@@ -12,10 +13,11 @@ mutation($name: String, $description: String, $totalwins: Int, $charactersID: St
 }
 `
 
-export const updateUser = gql`
-mutation($id: String!, $name: String, $description: String, $totalwins: Int, $charactersID: String){
-    updateUser(id: $id, name: $name, description: $description, totalwins: $totalwins, charactersID: $charactersID){
+export const UpdateUser = gql`
+mutation($id: String!, $name: String, $email: String, $description: String, $totalwins: Int, $charactersID: String){
+    updateUser(id: $id, name: $name, email: $email, description: $description, totalwins: $totalwins, charactersID: $charactersID){
         id
+        email
         name
         description
         totalwins
@@ -24,10 +26,11 @@ mutation($id: String!, $name: String, $description: String, $totalwins: Int, $ch
 }
 `
 
-export const deleteUser = gql`
+export const DeleteUser = gql`
 mutation($id: String!){
     deleteUser(id: $id){
         id
+        email
         name
         description
         totalwins
@@ -36,7 +39,7 @@ mutation($id: String!){
 }
 `
 
-export const addCharacter = gql`
+export const AddCharacter = gql`
 mutation($name: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
     addCharacter(name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         name
@@ -48,7 +51,7 @@ mutation($name: String, $wins: Int, $losses: Int, $percentage: Int, $image: Stri
 }
 `
 
-export const updateCharacter = gql`
+export const UpdateCharacter = gql`
 mutation($id: String!, $name: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
     updateCharacter(id: $id, name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         id
@@ -61,7 +64,7 @@ mutation($id: String!, $name: String, $wins: Int, $losses: Int, $percentage: Int
 }
 `
 
-export const deleteCharacter = gql`
+export const DeleteCharacter = gql`
 mutation($id: String!){
     deleteCharacter(id: $id){
         id
