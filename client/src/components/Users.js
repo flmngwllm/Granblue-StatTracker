@@ -18,7 +18,7 @@ class Users extends Component{
 
                     return(
                         data.users.map((user) =>(
-                            <div key ={user.id}>
+                            <div key ={user._id}>
                               {user.name}
                             </div>
                         )
