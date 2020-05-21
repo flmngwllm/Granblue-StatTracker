@@ -50,16 +50,16 @@ app.use(express.urlencoded({
 app.use(express.json())
 
 
-// // directory to host static content
-// app.use(express.static(`${__dirname}/client/build`))
+// directory to host static content
+app.use(express.static(`${__dirname}/client/build`))
 
 
-// //
-// app.get('/*', (req, res)=>{
-//     res.sendFile(`${__dirname}/client/build/index.html`)
-// })
+//
+app.get('/*', (req, res)=>{
+    res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () =>{
     console.log('app is running ' + PORT)

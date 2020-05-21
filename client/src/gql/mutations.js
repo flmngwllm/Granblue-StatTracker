@@ -1,10 +1,11 @@
 import {gql} from 'graphql-tag'
 
 export const addUser = gql`
-mutation($name: String, $totalwins: Int, $charactersID: String){
-    addUser(name: $name, totalwins: $totalwins, charactersID: $charactersID){
+mutation($name: String, $description: String, $totalwins: Int, $charactersID: String){
+    addUser(name: $name, description: $description, totalwins: $totalwins, charactersID: $charactersID){
         id
         name
+        description
         totalwins
         charactersID
     }
@@ -12,10 +13,11 @@ mutation($name: String, $totalwins: Int, $charactersID: String){
 `
 
 export const updateUser = gql`
-mutation($id: String!, $name: String, $totalwins: Int, $charactersID: String){
-    updateUser(id: $id, name: $name, totalwins: $totalwins, charactersID: $charactersID){
+mutation($id: String!, $name: String, $description: String, $totalwins: Int, $charactersID: String){
+    updateUser(id: $id, name: $name, description: $description, totalwins: $totalwins, charactersID: $charactersID){
         id
         name
+        description
         totalwins
         charactersID
     }
@@ -27,6 +29,7 @@ mutation($id: String!){
     deleteUser(id: $id){
         id
         name
+        description
         totalwins
         charactersID
     }
@@ -34,10 +37,9 @@ mutation($id: String!){
 `
 
 export const addCharacter = gql`
-mutation($name: String, $description: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
-    addCharacter(name: $name, description: $description, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
+mutation($name: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
+    addCharacter(name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         name
-        description 
         wins
         losses
         percentage
@@ -47,11 +49,10 @@ mutation($name: String, $description: String, $wins: Int, $losses: Int, $percent
 `
 
 export const updateCharacter = gql`
-mutation($id: String!, $name: String, $description: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
-    updateCharacter(id: $id, name: $name, description: $description, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
+mutation($id: String!, $name: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
+    updateCharacter(id: $id, name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         id
-        name
-        description 
+        name 
         wins
         losses
         percentage
@@ -65,7 +66,6 @@ mutation($id: String!){
     deleteCharacter(id: $id){
         id
         name
-        description
         wins
         losses
         percentage

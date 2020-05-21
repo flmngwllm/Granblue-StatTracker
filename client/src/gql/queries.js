@@ -5,10 +5,16 @@ import gql from 'graphql-tag'
 export const queryUsers = gql`
 {
     users{
-        id
+        _id
         name
         totalwins
-        charactersID
+        charactersID{
+            name  
+            wins
+            losses
+            percentage
+            image
+        }
     }
 }
 `
@@ -16,10 +22,16 @@ export const queryUsers = gql`
 export const querySingleUser = gql`
 query($id: String!){
     user(id: $id){
-        id
+        _id
         name
         totalwins
-        charactersID
+        charactersID{
+            name  
+            wins
+            losses
+            percentage
+            image
+        }
     }
 }
 `

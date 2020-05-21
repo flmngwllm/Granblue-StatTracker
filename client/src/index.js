@@ -10,11 +10,12 @@ import {ApolloProvider} from 'react-apollo'
 const client = new ApolloClient()
 
 ReactDOM.render(
-  <ApolloProvider client = {client}>
   <React.StrictMode>
+      <ApolloProvider client = {client}>
     <App />
-  </React.StrictMode>
-  </ApolloProvider>,
+    </ApolloProvider>
+  </React.StrictMode>,
+  
   document.getElementById('root')
 );
 
