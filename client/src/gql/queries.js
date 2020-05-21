@@ -1,5 +1,7 @@
 import {gql} from 'graphql-tag'
 
+
+//Defininig apollo graphql queries so it can access queries from graphql backend
 export const queryUsers = gql`
 {
     users{
