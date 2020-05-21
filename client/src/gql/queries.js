@@ -1,4 +1,4 @@
-import {gql} from 'graphql-tag'
+import gql from 'graphql-tag'
 
 
 //Defininig apollo graphql queries so it can access queries from graphql backend
