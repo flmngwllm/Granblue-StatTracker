@@ -48,7 +48,7 @@ const userType = new GraphQLObjectType({
             // return User.findById({id : args._id}).populate('charactersID').exec()
             // return Character.findOne({id : parent._id})
             // return Character.findById(parent.charactersID)
-            return Character.find({_id : {$in : parent.charactersID }})
+            return Character.find({_id : {$in : parent.charactersID}})
 
             // return User.findById(args._id).populate('charactersID').exec()
             // User.findById(parent.charactersID).populate('charactersID').exec()
@@ -112,10 +112,10 @@ const Mutation = new GraphQLObjectType({
             type: userType,
             args: {
                 name: {type: GraphQLNonNull(GraphQLString)},
-                email : { type: GraphQLString},
+                email : {type: (GraphQLString)},
                 totalwins: {type: (GraphQLInt)},
                 description: {type: (GraphQLString)},
-                charactersID: { type: new GraphQLNonNull(GraphQLID)}
+                charactersID: {type: (GraphQLID)}
             },
             resolve(parent, args){
                 let user = new User({
@@ -141,7 +141,7 @@ const Mutation = new GraphQLObjectType({
                 email : { type: GraphQLString},
                 totalwins: {type: (GraphQLInt)},
                 description: {type: (GraphQLString)},
-                charactersID: { type: new GraphQLNonNull(GraphQLID)}
+                charactersID: {type: GraphQLID}
             },
             resolve(parent, args){
                 return User.findByIdAndUpdate(args.id, args)

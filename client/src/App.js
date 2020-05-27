@@ -17,6 +17,8 @@ function App() {
       {/* <Route exact path="/signup" component={Signup}/>
       <Route exact path="/characters" component={Characters}/>
       <Route exact path="/user/:id" component={User}/> */}
+      <Route exact path="/user/:id" component={User}/>
+      <Route exact path="/signup" component={Signup}/>
       <Route exact path="/characters" component={Characters}/>
       <Route path="/" component={Home}/>
 
