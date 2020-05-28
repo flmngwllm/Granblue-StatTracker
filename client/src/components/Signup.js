@@ -11,7 +11,7 @@ class Signup extends Component{
                   <div>
                       Create new user
                     <form onSubmit= {e=>{e.preventDefault(); 
-                        addUser({variables: {name: name.value, email: email.value }})
+                        addUser({variables: {name: name.value, email: email.value}})
                         name.value = ""
                         email.value = ""
                         }}>

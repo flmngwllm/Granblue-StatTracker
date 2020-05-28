@@ -23,12 +23,7 @@ const characterType = new GraphQLObjectType({
         losses :  { type: GraphQLInt },
         percentage: {type: (GraphQLInt)},
         image: { type: GraphQLString },
-        // user: {
-        //     type: userType,
-        // resolve(parent, args) {
-        //     return User.findById(parent.id);
-        //     }
-        // }
+       
     })
 })
 
@@ -115,7 +110,7 @@ const Mutation = new GraphQLObjectType({
                 email : {type: (GraphQLString)},
                 totalwins: {type: (GraphQLInt)},
                 description: {type: (GraphQLString)},
-                charactersID: {type: (GraphQLID)}
+                charactersID: {type: GraphQLID}
             },
             resolve(parent, args){
                 let user = new User({
@@ -167,8 +162,8 @@ const Mutation = new GraphQLObjectType({
 
         addCharacter: {
             type: characterType,
-            args: {
-                name: {type: GraphQLNonNull(GraphQLString)},
+            args: { 
+                name: {type: GraphQLString},
                 wins: {type: (GraphQLInt)},
                 losses: {type: (GraphQLInt)},
                 percentage: {type: (GraphQLInt)},
@@ -192,7 +187,7 @@ const Mutation = new GraphQLObjectType({
             type: characterType,
             args: {
                 id: {type: new GraphQLNonNull(GraphQLString)},
-                name: {type: GraphQLNonNull(GraphQLString)},
+                name: {type: GraphQLString},
                 wins: {type: (GraphQLInt)},
                 losses: {type: (GraphQLInt)},
                 percentage: {type: (GraphQLInt)},

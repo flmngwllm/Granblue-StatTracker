@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const Add_User = gql`
-mutation addUser($name: String!, $email: String, $description: String, $totalwins: Int, $charactersID: ID!){
+mutation addUser($name: String!, $email: String, $description: String, $totalwins: Int, $charactersID: ID){
     addUser(name: $name, email: $email, description: $description, totalwins: $totalwins, charactersID: $charactersID){
         _id
         email
@@ -20,7 +20,7 @@ mutation addUser($name: String!, $email: String, $description: String, $totalwin
 `
 
 export const Update_User = gql`
-mutation UpdateUser($id: String!, $name: String!, $email: String, $description: String, $totalwins: Int, $charactersID: ID!){
+mutation UpdateUser($id: String!, $name: String!, $email: String, $description: String, $totalwins: Int, $charactersID: ID){
     updateUser(id: $id, name: $name, email: $email, description: $description, totalwins: $totalwins, charactersID: $charactersID){
         _id
         email
