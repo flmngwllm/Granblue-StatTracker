@@ -19,6 +19,7 @@ const characterType = new GraphQLObjectType({
     fields : () => ({
         _id: {type: GraphQLID},
         name : { type: GraphQLString},
+        description : { type: GraphQLString },
         wins : { type: GraphQLInt },
         losses :  { type: GraphQLInt },
         percentage: {type: (GraphQLInt)},
@@ -164,6 +165,7 @@ const Mutation = new GraphQLObjectType({
             type: characterType,
             args: { 
                 name: {type: GraphQLString},
+                description: {type: (GraphQLString)},
                 wins: {type: (GraphQLInt)},
                 losses: {type: (GraphQLInt)},
                 percentage: {type: (GraphQLInt)},
@@ -173,6 +175,7 @@ const Mutation = new GraphQLObjectType({
             resolve(parent, args){
                 let character = new Character({
                     name: args.name,
+                    description: args.description,
                     wins: args.wins,
                     losses: args.losses,
                     percentage: args.percentage,
@@ -188,6 +191,7 @@ const Mutation = new GraphQLObjectType({
             args: {
                 id: {type: new GraphQLNonNull(GraphQLString)},
                 name: {type: GraphQLString},
+                description: {type: (GraphQLString)},
                 wins: {type: (GraphQLInt)},
                 losses: {type: (GraphQLInt)},
                 percentage: {type: (GraphQLInt)},

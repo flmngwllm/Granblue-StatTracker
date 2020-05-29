@@ -20,6 +20,7 @@ class Characters extends Component{
                         data.characters.map((character) =>(
                             <div key={character._id}>
                               {character.name}
+                              {character.description}
                               {character.wins}
                               {character.losses}
                               {character.percentage}

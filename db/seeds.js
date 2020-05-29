@@ -9,7 +9,7 @@ const Gran = new Character({
     image: '',
     wins: 0,
     losses: 0
-}),
+})
 
 const Katalina = new Character({
     name: 'Katalina',
@@ -17,7 +17,7 @@ const Katalina = new Character({
     image: '',
     wins: 0,
     losses: 0
-}),
+})
 
 const Lancelot = new Character({
     name: 'Lancelot',
@@ -25,7 +25,7 @@ const Lancelot = new Character({
     image: '',
     wins: 0,
     losses: 0
-}),
+})
 
 const Percival = new Character({
     name: 'Percival',
@@ -33,7 +33,7 @@ const Percival = new Character({
     image: '',
     wins: 0,
     losses: 0
-}),
+})
 
 const Narmaya = new Character({
     name: 'Narmaya',
@@ -41,7 +41,7 @@ const Narmaya = new Character({
     image: '',
     wins: 0,
     losses: 0
-}),
+})
 
 const Soriz = new Character({
     name: 'Soriz',

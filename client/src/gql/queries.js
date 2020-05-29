@@ -11,6 +11,7 @@ export const queryUsers = gql`
         totalwins
         charactersID{
             name 
+            description
             wins
             losses
             percentage
@@ -28,7 +29,8 @@ query($id: ID){
         email
         totalwins
         charactersID{
-            name  
+            name
+            description  
             wins
             losses
             percentage
@@ -42,6 +44,7 @@ export const queryCharacters = gql`
 {
     characters{
         name
+        description
         wins
         losses
         percentage
@@ -54,6 +57,7 @@ export const querySingleCharacter = gql`
 query($id: String!){
     character(id: $id){
         name
+        description
         wins
         losses 
         percentage

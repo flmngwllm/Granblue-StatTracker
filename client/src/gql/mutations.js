@@ -10,6 +10,7 @@ mutation addUser($name: String!, $email: String, $description: String, $totalwin
         totalwins
         charactersID{
             name  
+            description
             wins
             losses
             percentage
@@ -28,7 +29,8 @@ mutation UpdateUser($id: String!, $name: String!, $email: String, $description: 
         description
         totalwins
         charactersID{
-            name  
+            name 
+            description 
             wins
             losses
             percentage
@@ -43,6 +45,7 @@ mutation($id: String!){
     deleteUser(id: $id){
         id
         email
+        description
         name
         description
         totalwins
@@ -55,6 +58,7 @@ export const AddCharacter = gql`
 mutation($name: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
     addCharacter(name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         name
+        description
         wins
         losses
         percentage
@@ -68,6 +72,7 @@ mutation($id: String!, $name: String, $wins: Int, $losses: Int, $percentage: Int
     updateCharacter(id: $id, name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         id
         name 
+        description
         wins
         losses
         percentage
@@ -81,6 +86,7 @@ mutation($id: String!){
     deleteCharacter(id: $id){
         id
         name
+        description
         wins
         losses
         percentage
