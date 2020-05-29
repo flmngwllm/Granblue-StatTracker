@@ -19,12 +19,11 @@ class Characters extends Component{
                     return(
                         data.characters.map((character) =>(
                             <div key={character._id}>
-                              {character.name}
-                              {character.description}
-                              {character.wins}
-                              {character.losses}
-                              {character.percentage}
-                              <img src={character.image}/>
+                              <img src={character.image} alt="character"/>
+                              <p>{character.name}</p>
+                              <p>{character.description}</p>
+                              
+                              
                             </div>
                         )
                     )   

@@ -14,9 +14,6 @@ function App() {
     <div className="App">
     <Nav/>
     <Switch>
-      {/* <Route exact path="/signup" component={Signup}/>
-      <Route exact path="/characters" component={Characters}/>
-      <Route exact path="/user/:id" component={User}/> */}
       <Route exact path="/user/:id" component={User}/>
       <Route exact path="/signup" component={Signup}/>
       <Route exact path="/characters" component={Characters}/>

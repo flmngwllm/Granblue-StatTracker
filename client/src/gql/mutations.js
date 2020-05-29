@@ -55,8 +55,8 @@ mutation($id: String!){
 `
 
 export const AddCharacter = gql`
-mutation($name: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
-    addCharacter(name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
+mutation($name: String, $description: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
+    addCharacter(name: $name, description: $description, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         name
         description
         wins
@@ -68,8 +68,8 @@ mutation($name: String, $wins: Int, $losses: Int, $percentage: Int, $image: Stri
 `
 
 export const UpdateCharacter = gql`
-mutation($id: String!, $name: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
-    updateCharacter(id: $id, name: $name, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
+mutation($id: String!, $name: String,  $description: String, $wins: Int, $losses: Int, $percentage: Int, $image: String){
+    updateCharacter(id: $id, name: $name, description: $description, wins: $wins, losses: $losses, percentage: $percentage, image: $image){
         id
         name 
         description

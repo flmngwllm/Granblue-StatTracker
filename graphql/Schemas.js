@@ -191,7 +191,7 @@ const Mutation = new GraphQLObjectType({
             args: {
                 id: {type: new GraphQLNonNull(GraphQLString)},
                 name: {type: GraphQLString},
-                description: {type: (GraphQLString)},
+                description: {type:(GraphQLString)},
                 wins: {type: (GraphQLInt)},
                 losses: {type: (GraphQLInt)},
                 percentage: {type: (GraphQLInt)},

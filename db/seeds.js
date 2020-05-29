@@ -6,7 +6,7 @@ const Character = require('../models/Character')
 const Gran = new Character({
     name: 'Gran',
     description: "This hero's adventure began when he received a letter from his father asking him to come to the Island of the Astrals, Estalucia. Now he travels the skies with his flying lizard-like buddy, Vyrn, and the mysterious blue-haired girl who saved his life by linking it with her own, Lyria. Honest to a fault, he'll come to the aid of anyone who needs his assistance. Although his swordplay is rough and self-taught, he possesses the power to overcome any obstacle—thanks in no small part to Lyria's assistance.",
-    image: '',
+    image: '../db/images/granback.jpg',
     wins: 0,
     losses: 0
 })
@@ -14,7 +14,7 @@ const Gran = new Character({
 const Katalina = new Character({
     name: 'Katalina',
     description: "A former imperial knight that abandoned her post to protect Lyria. When she was loyal to the empire, she was charged with guarding Lyria, but this changed when she caught wind of the twisted experiments that were being performed on the girl. This prompted her to orchestrate an escape for Lyria, the catalyst that began their sky-bound adventures with Gran.",
-    image: '',
+    image: '../db/images/granback.jpg',
     wins: 0,
     losses: 0
 })
@@ -128,7 +128,7 @@ const Beezlebub = new Character({
 
 const Ladiva = new Character({
     name: 'Ladiva',
-    description: 'Monday',
+    description: "This Draph duelist is the star of the Jewel Resort Casino Liner. In the arena and out, she's purehearted, compassionate, and loving in every sense of the word. Her devotion to fans and formidable strength make for powerhouse performances sure to captivate any audience.",
     image: '',
     wins: 0,
     losses: 0
