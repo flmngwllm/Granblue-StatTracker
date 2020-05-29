@@ -21,7 +21,7 @@ export const queryUsers = gql`
 `
 
 export const querySingleUser = gql`
-query($id: String!){
+query($id: ID){
     user(id: $id){
         _id
         name
@@ -38,7 +38,7 @@ query($id: String!){
 }
 `
 
-export const  queryCharacters = gql`
+export const queryCharacters = gql`
 {
     characters{
         name

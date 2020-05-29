@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 class Users extends Component{
     render(){
         return(
-            <Query  query={queryUsers}>
+            <Query query={queryUsers}>
                 {({loading,error,data}) =>{
                     if (loading){
                         return "...Loading"
@@ -18,9 +18,10 @@ class Users extends Component{
 
                     return(
                         data.users.map((user) =>(
-                            <div key ={user._id}>
-                              {user.name}
+                           <div key ={user._id}>
+                             <Link to={`/user/${user._id}`}>{user.name}</Link>
                             </div>
+                            
                         )
                     )   
                  )    
