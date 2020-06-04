@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {querySingleUser} from '../gql/queries'
 import {Query} from 'react-apollo'
+import {LoadingOutlined} from '@ant-design/icons'
 
 
 class User extends Component{
@@ -22,6 +23,7 @@ class User extends Component{
                             {data.user.description}
                             {data.user.totalwins}
                             {data.user.charactersID}
+                            <LoadingOutlined />
                         </div>
                         )
                 }}
