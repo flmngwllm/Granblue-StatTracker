@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import { Breadcrumb, Menu } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import Users from './Users'
 
 
@@ -32,7 +33,9 @@ class Nav extends Component {
       <Link to = "/characters">Characters</Link>
     </Breadcrumb.Item>
     <Breadcrumb.Item overlay={menu}>
-      Users
+     <UserOutlined />
+      <span>Users</span>
+      
     </Breadcrumb.Item>
     <Breadcrumb.Item>
      <Link to = "/signup">Signup</Link>
