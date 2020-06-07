@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Characters from './components/Characters'
 import Signup from './components/Signup'
 import User from './components/User'
+import 'antd/dist/antd.css';
 
 function App() {
   return (
