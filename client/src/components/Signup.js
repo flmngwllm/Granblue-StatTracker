@@ -10,13 +10,13 @@ const layout = {
     span: 8,
   },
   wrapperCol: {
-    span: 16,
+    span: 8,
   },
 };
 const tailLayout = {
   wrapperCol: {
     offset: 8,
-    span: 16,
+    span: 8,
   },
 };
 
@@ -34,7 +34,7 @@ class Signup extends Component{
   };
         let name, email;
         return(
-          <Mutation forwardRef mutation={Add_User} onCompleted={() => this.props.history.push('/')}>
+          <Mutation mutation={Add_User} onCompleted={() => this.props.history.push('/')}>
               {(addUser, {loading, error}) => (
                   <div>
                       Create new user

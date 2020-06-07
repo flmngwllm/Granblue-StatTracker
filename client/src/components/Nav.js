@@ -32,17 +32,14 @@ class Nav extends Component {
      <Breadcrumb.Item>
       <Link to = "/characters">Characters</Link>
     </Breadcrumb.Item>
-    <Breadcrumb.Item overlay={menu}>
-     <UserOutlined />
-      <span>Users</span>
-      
-    </Breadcrumb.Item>
     <Breadcrumb.Item>
      <Link to = "/signup">Signup</Link>
     </Breadcrumb.Item>
-  </Breadcrumb>
-  
-               
+    <Breadcrumb.Item overlay={menu}>
+     <UserOutlined />
+      <span>Users</span>
+    </Breadcrumb.Item>
+  </Breadcrumb>     
             </div>
             
         );
