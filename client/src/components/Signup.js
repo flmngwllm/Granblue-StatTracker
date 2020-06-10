@@ -38,7 +38,7 @@ class Signup extends Component{
               {(addUser, {loading, error}) => (
                   <div>
                       Create new user
-                    <Form {...layout} name="basic" initialValues={{remember: true,}}
+                    <Form {...layout} initialValues={{remember: true,}}
                         onFinish={onFinish}
                         onFinishFailed={onFinishFailed} onSubmit= {e=>{e.preventDefault(); 
                         addUser({variables: {name: name.value, email: email.value}})
